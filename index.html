@@ -1,80 +1,91 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>HTML 5 - Game of Life</title>
+		<script src="./lib/jquery.js" type="text/javascript"></script>
+		<script src="./lib/gol-canvas.js" type="text/javascript"></script>
+		<script src="./lib/gol-client.js" type="text/javascript"></script>
+		<link href="css/gol.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<a href="http://github.com/benjaminplee/HTLM5-GoL"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+		
+		<div id="container">
+	    <div class="download">
+	      <a href="http://github.com/benjaminplee/HTLM5-GoL/zipball/master">
+	        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png">
+        </a>
+	      <a href="http://github.com/benjaminplee/HTLM5-GoL/tarball/master">
+	        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png">
+        </a>
+	    </div>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	    <h1>
+	    	<a href="http://github.com/benjaminplee/HTLM5-GoL">HTLM5-GoL</a>
+    	</h1>
 
-	<title>benjaminplee/HTLM5-GoL @ GitHub</title>
-	
-	<style type="text/css">
-		body {
-  		margin-top: 1.0em;
-  		background-color: #c6c6e2;
-		  font-family: "Helvetica,Arial,FreeSans";
-  		color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-		h1 { font-size: 3.8em; color: #39391d; margin-bottom: 3px; }
-		h1 .small { font-size: 0.4em; }
-		h1 a { text-decoration: none }
-		h2 { font-size: 1.5em; color: #39391d; }
-    h3 { text-align: center; color: #39391d; }
-    a { color: #39391d; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-		pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-	</style>
-	
-</head>
+	    <div class="description">
+	      Game of Life simulation leveraging HTML 5 Web Workers and Canvas tags
+	    </div>
+	    
+	    <h2>Sample Game Area</h2>
+	    <p>
+	    	<canvas id="gol_canvas" width="401" height="401"></canvas>
+	    	<div class="note">If your browser is too old or doesn't support the required HTML 5 features, the box above will remain blank. Reload this page to restart the animation with new random life points.</div>
+	    </p>
 
-<body>
-  <a href="http://github.com/benjaminplee/HTLM5-GoL"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+    	<h2>Dependencies</h2>
+    	<p>
+    		<a href="http://visionmedia.github.com/jspec/">JSpec</a> is required to run tests
+  		</p>
+  		<p>
+  			<a href="http://weblog.bocoup.com/javascript-web-workers-opera-10-60-beta-supports-complex-messages">An up to date browser</a>: Firefox 3.5+, Safari 5+, Chrome 5+, Opera 10.6+, etc.  Other browsers may work (especially those built on the same Gecko/WebKit engines) but have not been tested.
+  		</p>
+  		
+  		<h2>Technical Description</h2>
+  		<p>
+  			HTML 5 Web Workers, Canvas tags, JSpec Javascript testing, ...
+  		</p>
+  		
+  		<h2>To Do / Future Features</h2>
+  		<p>
+  			<ul>
+  				<li>Finish rewriting/testing worker and canvas logic</li>
+  				<li>Start/Stop/Reset actions</li>
+  				<li>Save/Load patterns (universally known patters and custom user created; save to local storage)</li>
+  				<li>Add/Remove life with mouse clicks on canvas</li>
+  				<li>Mouse/Keyboard panning of larger matricies, limited viewing area</li>
+  				<li>User defined matrix size</li>
+  				<li>Variable animation speed</li>
+  				<li>Browser testing and verification / IE support ;-)</li>
+  			</ul>
+  		</p>
 
-  <div id="container">
+			<h2>Author</h2>
+			<p>
+				Benjamin P Lee
+				<ul>
+					<li><a href="http://github.com/benjaminplee">GitHub Profile</a></li>
+					<li><a href="http://twitter.com/leebenjp">twitter.com/leebenjp</a></li>
+					<li><a href="http://twoguysarguing.wordpress.com">Two Guys Arguing Blog</a></li>
+				</ul>
+			</p>
 
-    <div class="download">
-      <a href="http://github.com/benjaminplee/HTLM5-GoL/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/benjaminplee/HTLM5-GoL/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
+    	<h2>Download</h2>
+	    <p>
+	      You can download this project in either
+	      <a href="http://github.com/benjaminplee/HTLM5-GoL/zipball/master">zip</a> or
+	      <a href="http://github.com/benjaminplee/HTLM5-GoL/tarball/master">tar</a> formats.
+	    </p>
+	    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+	      by running:
+	      <pre>$ git clone git://github.com/benjaminplee/HTLM5-GoL</pre>
+	    </p>
 
-    <h1><a href="http://github.com/benjaminplee/HTLM5-GoL">HTLM5-GoL</a>
-      <span class="small">by <a href="http://github.com/benjaminplee">benjaminplee</a></span></h1>
-
-    <div class="description">
-      Game of Life testbed for HTML 5 
-    </div>
-
-    <h2>Dependencies</h2>
-<p>JSpec to run tests: http://visionmedia.github.com/jspec/</p>
-<h2>Authors</h2>
-<p>Benjamin P Lee<br/><br/>      </p>
-
-
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/benjaminplee/HTLM5-GoL/zipball/master">zip</a> or
-      <a href="http://github.com/benjaminplee/HTLM5-GoL/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/benjaminplee/HTLM5-GoL</pre>
-    </p>
-
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/benjaminplee/HTLM5-GoL">benjaminplee/HTLM5-GoL</a>
-    </div>
-
-  </div>
-
-  
-</body>
+	    <div class="footer">
+	      get the source code on GitHub : <a href="http://github.com/benjaminplee/HTLM5-GoL">benjaminplee/HTLM5-GoL</a>
+	    </div>
+  	</div>
+	</body>
 </html>
