@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<script src="/jspec/jspec.js"></script>
+		<script src="/jspec/jspec.xhr.js"></script>
+		<script src="/lib/jquery.js"></script>
+		<script src="/lib/gol.js"></script>
+		<script src="/spec/unit/spec.helper.js"></script>
+		<script>
+			function runSuites() {
+				JSpec
+				.exec('unit/gol.spec.js')
+				.run({ reporter: JSpec.reporters.Server, verbose: true, failuresOnly: true, fixturePath: '/spec/fixtures' })
+				.report()
+			}
+		</script>
+	</head>
+	<body class="jspec" onLoad="runSuites();">
+	</body>
+</html>
